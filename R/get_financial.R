@@ -18,7 +18,7 @@ GetFinancial <- function(statement.type, symbol, year) {
           
           library(edgarWebR)
           FilingsonEdgar <- edgarWebR::company_filings(x = symbol, type = "10-K")
-          DocumentsonEdgar <-  edgarWebR::filing_documents(x = FilingsonEdgar$href[1])
+          DocumentsonEdgar <-  edgarWebR::filing_documents(x = FilingsonEdgar$href[year])
           inst.url <- DocumentsonEdgar[DocumentsonEdgar[5] == 'XML', 4]
           
           return(inst.url)
